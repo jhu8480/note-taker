@@ -1,11 +1,14 @@
 const fs = require('fs');
 const path = require('path');
 const express = require('express');
+const notesRouter = require('./routes/notesRoute');
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use('/api/notes', notesRouter);
 app.use(express.static('public'));
+
 
 app.get('/', (req, res) => {
   fs.readFile(path.join(__dirname, 'public', 'index.html'), 'utf8', (err, data) => {
@@ -20,8 +23,6 @@ app.get('/notes', (req, res) => {
     res.status(200).send(data);
   })
 });
-
-
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
