@@ -7,9 +7,5 @@
     "start": "node server"
   },
   "author": "",
-  "license": "MIT",
-  "dependencies": {
-    "express": "^4.16.4",
-    "uuid": "^9.0.0"
-  }
+  "license": "MIT"
 }
